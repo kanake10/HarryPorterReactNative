@@ -40,7 +40,7 @@ class App extends Component {
 						return (
 							<View key={index} style={styles.row}>
 								
-								<Image source={{uri: item.image}} style={styles.image}  />
+								<Image source={{url: item.image}} style={styles.image}  />
 				
 								<View style={[styles.column, { marginLeft: 10}]}>
 									<Text style={[styles.text, { fontWeight: "bold"}]}>{item.name}</Text>
