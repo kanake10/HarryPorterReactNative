@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, FlatList, Image } from 'react-native';
 import axios from 'axios';
 
-const API = "https://hp-api.onrender.com/api/"
+const BASE_URL = "https://hp-api.onrender.com/api/"
 class App extends Component {
 
 	constructor(props) {
@@ -14,7 +14,7 @@ class App extends Component {
 	}
 
 	getCharacters(){
-		axios.get(`${API}characters`)
+		axios.get(`${BASE_URL}characters`)
 		.then((response) => {
 			this.setState({ 
 				characters: response.data && response.data || []
@@ -32,7 +32,7 @@ class App extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
-				<Text>Personagens</Text>
+				
 				<FlatList
 					style={styles.list}
 					data={this.state.characters}
@@ -40,7 +40,7 @@ class App extends Component {
 						return (
 							<View key={index} style={styles.row}>
 								
-								<Image source={{uri: item.image}} style={styles.image} resizeMode="contain" />
+								<Image source={{uri: item.image}} style={styles.image}  />
 				
 								<View style={[styles.column, { marginLeft: 10}]}>
 									<Text style={[styles.text, { fontWeight: "bold"}]}>{item.name}</Text>
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
 	},
 	image: {
 		width: 80, 
-		height: 80
+		height: 100
 	},
 	row:{ 
 		flex: 1,
